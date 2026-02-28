@@ -57,7 +57,7 @@ export const PlansPage = () => {
                 >
                     <h2 style={{ fontSize: '2.5rem', marginBottom: '1.5rem' }}>Ready to start earning?</h2>
                     <p style={{ color: 'var(--text-secondary)', marginBottom: '2.5rem', maxWidth: '600px', margin: '0 auto 2.5rem' }}>
-                        Join over 50,000+ traders scaling their wealth with OnxTrades. 24/7 support and instant withdrawals guaranteed.
+                        Join over 50,000+ traders scaling their wealth with Digital Trade. 24/7 support and instant withdrawals guaranteed.
                     </p>
                     <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center' }}>
                         <button className="btn btn-primary" style={{ padding: '1rem 2.5rem', fontSize: '1.1rem' }} onClick={() => window.location.href = '/signup'}>

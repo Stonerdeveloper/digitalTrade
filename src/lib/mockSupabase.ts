@@ -1,4 +1,4 @@
-const STORAGE_KEY = 'onxtrades_mock_db';
+const STORAGE_KEY = 'digitaltrade_mock_db';
 
 const defaultData = {
     profiles: [
@@ -106,7 +106,7 @@ class QueryBuilder {
 export const mockSupabase = {
     auth: {
         getSession: async () => {
-            const sessionStr = localStorage.getItem('onxtrades_session');
+            const sessionStr = localStorage.getItem('digitaltrade_session');
             return { data: { session: sessionStr ? JSON.parse(sessionStr) : null }, error: null };
         },
         signInWithPassword: async ({ email }: { email: string }) => {
@@ -115,7 +115,7 @@ export const mockSupabase = {
             if (!profile) return { data: { user: null }, error: { message: 'Invalid credentials' } };
 
             const session = { user: { id: profile.id, email: profile.email }, expires_at: Date.now() + 3600000 };
-            localStorage.setItem('onxtrades_session', JSON.stringify(session));
+            localStorage.setItem('digitaltrade_session', JSON.stringify(session));
             // Re-trigger auth change manually for mock
             window.dispatchEvent(new Event('auth-change'));
             return { data: { user: session.user, session }, error: null };
@@ -136,13 +136,13 @@ export const mockSupabase = {
             return { data: { user: { id: profile.id, email } }, error: null };
         },
         signOut: async () => {
-            localStorage.removeItem('onxtrades_session');
+            localStorage.removeItem('digitaltrade_session');
             window.dispatchEvent(new Event('auth-change'));
             return { error: null };
         },
         onAuthStateChange: (callback: any) => {
             const handler = () => {
-                const sessionStr = localStorage.getItem('onxtrades_session');
+                const sessionStr = localStorage.getItem('digitaltrade_session');
                 callback('SIGNED_IN', sessionStr ? JSON.parse(sessionStr) : null);
             };
             window.addEventListener('auth-change', handler);

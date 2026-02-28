@@ -18,7 +18,7 @@ const Navbar = ({ session, profile }: { session: any; profile: any }) => (
           <TrendingUp size={26} />
         </div>
         <span style={{ fontSize: '1.6rem', fontWeight: 800, letterSpacing: '-0.7px' }}>
-          Onx<span className="gradient-text">Trades</span>
+          Digital <span className="gradient-text">Trade</span>
         </span>
       </Link>
 
